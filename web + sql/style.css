@@ -1,0 +1,76 @@
+:root {
+    --color-primario: #1E4391;
+    --color-secundario: #E85D23;
+    --color-advertencia: #F4B223;
+    --color-peligro: #c0392b;
+    --color-exito: #27ae60;
+    --color-blanco: #FFFFFF;
+    --color-gris: #e0e0e0;
+    --color-fondo: #f0f2f5;
+    --color-texto: #1a1a1a;
+    --borde-redondeado: 6px;
+    --sombra-suave: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+body { background: var(--color-fondo); padding: 15px; color: var(--color-texto); }
+code { background: #eee; padding: 1px 5px; border-radius: 3px; }
+
+.contenedor-principal { max-width: 1300px; margin: 0 auto; background: var(--color-blanco); border-radius: var(--borde-redondeado); box-shadow: var(--sombra-suave); padding: 20px; }
+
+/* ---------------- Login ---------------- */
+.login-overlay { position: fixed; inset: 0; background: linear-gradient(135deg, var(--color-primario), #0d2454); display: flex; align-items: center; justify-content: center; z-index: 2000; }
+.login-caja { background: white; padding: 35px 30px; border-radius: 10px; width: 90%; max-width: 380px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+.login-caja h1 { margin-bottom: 5px; }
+.login-tabs { display: flex; margin: 20px 0 15px; border-radius: 6px; overflow: hidden; border: 1px solid var(--color-gris); }
+.login-tab { flex: 1; padding: 10px; border: none; background: #f5f5f5; cursor: pointer; font-weight: 600; color: #555; }
+.login-tab.activo { background: var(--color-primario); color: white; }
+
+/* ---------------- Encabezado y navegación ---------------- */
+.barra-superior { display: flex; justify-content: space-between; align-items: center; background: var(--color-primario); color: white; padding: 12px 20px; border-radius: var(--borde-redondeado); margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
+.barra-superior .controles-usuario { display: flex; gap: 15px; align-items: center; }
+
+.campana-notificacion { position: relative; cursor: pointer; font-size: 1.2rem; }
+.badge-notificacion { position: absolute; top: -5px; right: -8px; background: var(--color-peligro); color: white; border-radius: 50%; padding: 2px 6px; font-size: 0.7rem; font-weight: bold; min-width: 10px; text-align: center; }
+.badge-notificacion.oculta { display: none; }
+
+.btn { padding: 8px 16px; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; color: white; }
+.btn-primario { background: var(--color-primario); }
+.btn-secundario { background: var(--color-secundario); }
+.btn-peligro { background: var(--color-peligro); }
+.btn-exito { background: var(--color-exito); }
+.btn-outline { background: transparent; color: var(--color-primario); border: 1px solid var(--color-primario); }
+.btn-outline-header { color: white; border-color: white; padding: 4px 8px; }
+.btn:disabled { opacity: 0.55; cursor: not-allowed; }
+.btn-mini { padding: 4px 10px; font-size: 0.8rem; }
+
+.etiqueta-form { font-size: 0.9rem; font-weight: bold; display: block; margin: 8px 0 4px; }
+.form-control { width: 100%; padding: 8px; border: 1px solid var(--color-gris); border-radius: 4px; margin-bottom: 10px; }
+select.form-control { background: white; }
+
+table { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
+th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--color-gris); font-size: 0.92rem; }
+th { background: #f8f9fc; color: var(--color-primario); }
+.stock-critico { color: var(--color-peligro); font-weight: bold; }
+.stock-ok { color: var(--color-exito); font-weight: 600; }
+
+.estado-pill { padding: 3px 10px; border-radius: 12px; font-size: 0.78rem; font-weight: 700; display: inline-block; }
+.estado-pendiente { background: #fde9d0; color: #8a5a00; }
+.estado-ok { background: #d7f3e3; color: #1d7a44; }
+.estado-defecto_pendiente { background: #fbdada; color: #a3272a; }
+.estado-resuelto_reposicion { background: #d7f3e3; color: #1d7a44; }
+.estado-resuelto_reembolso { background: #dbe4f7; color: #1e4391; }
+
+.modal-fondo { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 1000; }
+.modal-fondo.activo { display: flex; }
+.modal-contenido { background: white; padding: 25px; border-radius: var(--borde-redondeado); max-width: 500px; width: 90%; max-height: 85vh; overflow-y: auto; }
+.modal-header { display: flex; justify-content: space-between; margin-bottom: 15px; border-bottom: 1px solid var(--color-gris); padding-bottom: 10px; }
+.modal-cerrar { cursor: pointer; font-size: 1.2rem; background: none; border: none; }
+
+.grid-kiosco { display: grid; grid-template-columns: 1.3fr 1fr; gap: 20px; align-items: start; }
+@media (max-width: 800px) { .grid-kiosco { grid-template-columns: 1fr; } }
+.panel { border: 1px solid var(--color-gris); padding: 15px; border-radius: var(--borde-redondeado); }
+.pedido-card { border: 1px solid #ccc; padding: 10px; border-radius: 4px; margin-bottom: 10px; }
+.pedido-card .acciones { margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; }
+.texto-mudo { color: #666; font-size: 0.85rem; }
+.mensaje-error { color: var(--color-peligro); font-size: 0.85rem; margin-top: -5px; margin-bottom: 10px; min-height: 1.1em; }
